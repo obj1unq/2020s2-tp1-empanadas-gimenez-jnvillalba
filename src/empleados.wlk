@@ -6,14 +6,14 @@ object gimenez{
 	}
 	
 	method pagarSueldo(empleado){
-		fondoParaSueldos -= empleado.sueldo()		
+		fondoParaSueldos -= empleado.sueldo()
 	}
 	
 }
 
 object galvan{
 	var sueldo = 15000
-	
+
 	//GETTER
 	method sueldo(){
 		return sueldo
@@ -36,6 +36,11 @@ object baigorria{
 	}
 	
 	method sueldo(){
+		return sueldo	
+	}
+	
+	//Qué hacen los empleados con lo que cobran
+	method totalCobrado(){
 		return sueldo	
 	}
 }
