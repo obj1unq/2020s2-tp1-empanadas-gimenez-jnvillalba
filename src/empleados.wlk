@@ -7,6 +7,7 @@ object gimenez{
 	
 	method pagarSueldo(empleado){
 		fondoParaSueldos -= empleado.sueldo()
+		empleado.reiniciarMes()
 		empleado.pagarDeudas()
 	}
 	
@@ -46,24 +47,38 @@ object galvan{
 		dinero = 0.max(sueldo - deuda)
 		deuda = 0.max(deuda - sueldo)  
 	}
+	
+	method reiniciarMes(){}
 }
 
 object baigorria{
 	var sueldo = 0
 	var cantEmpanadasVendidas = 0
+	var ahorro = 0
 	
 	method vender(cantidad){
 		cantEmpanadasVendidas += cantidad
-		sueldo += cantidad*15
+	}
+	
+	method reiniciarMes(){
+		ahorro += sueldo
+		cantEmpanadasVendidas = 0
+	}
+	
+	
+	//GETTER
+	method cantEmpanadasVendidas(){
+		return cantEmpanadasVendidas
 	}
 	
 	method sueldo(){
-		return sueldo	
+		sueldo = cantEmpanadasVendidas*15
+		return sueldo
 	}
 	
 	//Qué hacen los empleados con lo que cobran
 	method totalCobrado(){
-		return sueldo	
+		return ahorro
 	}
 	
 	method pagarDeudas(){}
